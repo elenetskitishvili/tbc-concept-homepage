@@ -1,0 +1,346 @@
+@import url(../assets/fonts/fonts.css);
+
+:root {
+  --gray-dark: #555f62;
+  --gray-light: #eef1f1;
+  --text-main: #141719;
+  --nav-text-col: #222;
+  --blue-dark: #182cc0;
+  --blue-medium: #2778a7;
+  --blue-light: #3295ce;
+  --bg-color: #f9fafa;
+  --main-border: #e1e4e5;
+  --accordion-border: #d1d5d6;
+  --scrollbar-track: #e5e5e5;
+  --scrollbar-thumb: #727272;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --font-regular: "TBCXRegular", sans-serif;
+  --font-medium: "TBCXMedium", sans-serif;
+  --font-bold: "TBCXBold", sans-serif;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  height: 100vh;
+  overflow: hidden;
+  font-family: var(--font-regular);
+  color: var(--text-main);
+  font-weight: 400;
+  background-color: var(--bg-color);
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+/******************************/
+/*    Reusable CSS Classes    */
+/******************************/
+
+.hidden {
+  display: none !important;
+}
+
+.visible {
+  display: block !important;
+}
+
+.transparent {
+  opacity: 0;
+}
+
+.container {
+  max-width: 111rem;
+  padding: 0 4.7rem;
+  margin: 0 auto;
+}
+
+.section-title--secondary {
+  font-family: var(--font-bold);
+  font-size: 2.4rem;
+  line-height: 1.5;
+  margin-bottom: 3.6rem;
+}
+
+/* Reusable call-to-action Button */
+.cta-button,
+.cta-button {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-bold);
+  line-height: 1.4;
+}
+
+.arrow-icon--right,
+.language-switcher__icon--earth {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.cta-text {
+  font-size: 1.4rem;
+  padding-top: 2px;
+}
+
+/***************************/
+/*     Reusable Slider     */
+/***************************/
+
+.slider-wrapper {
+  width: 100%;
+  max-width: 111rem;
+}
+
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  cursor: grab;
+  padding-bottom: 3.8rem;
+}
+
+.slider-container__slider {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+
+.slider-container__slide {
+  flex: 0 0 auto;
+  width: 34.8rem;
+  margin-right: 3rem;
+  user-select: none;
+}
+
+.slider-container__slide:last-child {
+  margin-right: 0;
+}
+
+.slider-container__custom-scrollbar-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+
+.slider-container__custom-scrollbar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  height: 3px;
+  background-color: #d1d5d6;
+  border-radius: 100px;
+  border: none;
+  overflow: hidden;
+}
+
+.slider-container__custom-scrollbar.transparent {
+  background-color: transparent;
+}
+
+.slider-container__scroll-indicator {
+  height: 100%;
+  background-color: var(--blue-dark);
+  width: 300px;
+  border-radius: 100px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.slider-container__nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 8rem;
+}
+
+.slider-container__nav-button {
+  width: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  color: #d1d5d6;
+  font-size: 2.4rem;
+  background: none;
+  user-select: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.slider-container__nav-button.active {
+  color: var(--blue-dark);
+}
+
+@media (max-width: 600px) {
+  .slider-container__slide {
+    width: calc(100% - 30px);
+    margin-right: 30px;
+  }
+  .slider-container__slide:last-child {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .slider-container__scroll-indicator {
+    width: 137px;
+  }
+}
+
+/***************************************************/
+/*  Reusable Classes for Hero and Banner Sections  */
+/***************************************************/
+
+.section__container {
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: auto;
+  aspect-ratio: 2.95 / 1;
+}
+
+.section__content {
+  max-width: 54rem;
+
+  padding: 9.5rem;
+  color: #fff;
+}
+
+.section__title {
+  font-size: 2.8rem;
+  line-height: 1.5;
+  font-family: var(--font-bold);
+  margin-bottom: 1.6rem;
+}
+
+.section__subtitle {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.7;
+  margin-bottom: 2.4rem;
+}
+
+.section__cta-button:link,
+.section__cta-button:visited {
+  position: relative;
+  display: inline-block;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(15deg, #001682, #3240e5);
+  transition: transform 0.2s ease-in-out;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.section__cta-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #3295ce;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: -1;
+}
+
+.section__cta-button:hover::before {
+  opacity: 1;
+}
+
+.section__cta-button:active::before {
+  background: #2778a7;
+}
+
+.section__cta-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.7rem 2.45rem;
+}
+
+.section__cta-icon {
+  fill: #fff;
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.section__cta-text {
+  color: #fff;
+  font-size: 1.2rem;
+  font-family: var(--font-bold);
+  line-height: 1.33;
+}
+
+/******************************************/
+/* Custom Scrollbar (for header dropdown) */
+/******************************************/
+
+/* WebKit browsers (Safari, Chrome, and modern Edge) */
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: none;
+  scrollbar-color: transparent transparent;
+}
+
+/*********************************/
+/* Default rule for all browsers */
+/*********************************/
+.language-switcher__current-language,
+.header__digital-bank-link span,
+.features__number,
+.category,
+.card__title,
+.card__description strong,
+.footer__heading,
+.contact-heading,
+.section__cta-text,
+.section__title,
+.section-title--secondary,
+.cta-text {
+  font-weight: 700;
+}
+
+/*****************************/
+/* Specific rule for Firefox */
+/*****************************/
+@-moz-document url-prefix() {
+  .language-switcher__current-language,
+  .header__digital-bank-link span,
+  .features__number,
+  .category,
+  .card__title,
+  .card__description strong,
+  .footer__heading,
+  .contact-heading,
+  .section__cta-text,
+  .section__title,
+  .section-title--secondary,
+  .cta-text {
+    font-weight: 400;
+  }
+}
